@@ -25,8 +25,8 @@
 
     #banner img {
       display: block;
-      max-width: 100%;
-      max-height: 100%;
+      width: 350px;        /* 🔥 FORCE ALL IMAGES SAME WIDTH */
+      height: auto;
       background: rgba(0,0,0,0) !important;
     }
   </style>
@@ -38,11 +38,11 @@
 </div>
 
 <script>
-  // 🔁 CONFIG — update your images here
+  // 🔁 CONFIG — your 3 images
   const images = [
-    "https://i.postimg.cc/vg2fTsk8/Frame-104.png",   // first PNG
-    "https://i.postimg.cc/KkpBj2w4/Frame-106.png",   // second PNG
-    "https://i.postimg.cc/cLYk69Tw/slide3.png"       // third PNG 
+    "https://i.postimg.cc/vg2fTsk8/Frame-104.png",   // image 1
+    "https://i.postimg.cc/KkpBj2w4/Frame-106.png",   // image 2
+    "https://i.postimg.cc/cLYk69Tw/slide3.png"        // image 3
   ];
 
   const visiblePerImageMs = 10000;   // 10 seconds per image
