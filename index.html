@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <style>
-    body {
+    /* FORCE TRUE TRANSPARENCY */
+    html, body {
       margin: 0;
+      padding: 0;
+      background: rgba(0,0,0,0) !important;
       overflow: hidden;
-      background: transparent; /* important for overlay */
     }
 
     #banner {
       position: absolute;
-      bottom: 5%;      /* change to move it around */
+      bottom: 5%;      /* position on screen */
       right: 5%;
       padding: 0;
       margin: 0;
       opacity: 0;
       transition: opacity 0.5s ease;
-      pointer-events: none; /* so it doesn't block clicks */
+      pointer-events: none;
+      background: rgba(0,0,0,0) !important; /* ensure transparent container */
     }
 
     #banner img {
       display: block;
       max-width: 100%;
       max-height: 100%;
+      background: rgba(0,0,0,0) !important; /* force image container transparency */
     }
   </style>
 </head>
@@ -41,7 +45,7 @@
   ];
 
   const visiblePerImageMs = 10000;   // 10 seconds per image
-  const hiddenIntervalMs   = 300000; // 5 minutes hidden (300,000 ms)
+  const hiddenIntervalMs   = 300000; // 5 minutes hidden
 
   const banner = document.getElementById("banner");
   const slide  = document.getElementById("slide");
@@ -50,21 +54,18 @@
     let index = 0;
 
     function showNextImage() {
-      // If we've shown both images, hide and wait 5 minutes
       if (index >= images.length) {
-        banner.style.opacity = 0; // fade out
+        banner.style.opacity = 0;
+
         setTimeout(() => {
-          // keep it hidden, then restart the whole cycle
           setTimeout(runCycle, hiddenIntervalMs);
-        }, 500); // match the CSS transition
+        }, 500);
         return;
       }
 
-      // Show banner + current image
       slide.src = images[index];
       banner.style.opacity = 1;
 
-      // After 10s, move to next image
       setTimeout(() => {
         index++;
         showNextImage();
@@ -74,7 +75,6 @@
     showNextImage();
   }
 
-  // Start once when page loads
   runCycle();
 </script>
 
