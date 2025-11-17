@@ -13,21 +13,21 @@
 
     #banner {
       position: absolute;
-      bottom: 5%;      /* position on screen */
+      bottom: 5%;      
       right: 5%;
       padding: 0;
       margin: 0;
       opacity: 0;
       transition: opacity 0.5s ease;
       pointer-events: none;
-      background: rgba(0,0,0,0) !important; /* ensure transparent container */
+      background: rgba(0,0,0,0) !important;
     }
 
     #banner img {
       display: block;
       max-width: 100%;
       max-height: 100%;
-      background: rgba(0,0,0,0) !important; /* force image container transparency */
+      background: rgba(0,0,0,0) !important;
     }
   </style>
 </head>
@@ -38,14 +38,15 @@
 </div>
 
 <script>
-  // 🔁 CONFIG — change these
+  // 🔁 CONFIG — update your images here
   const images = [
-    "https://i.postimg.cc/vg2fTsk8/Frame-104.png",  // first PNG
-    "https://i.postimg.cc/KkpBj2w4/Frame-106.png"   // second PNG
+    "https://i.postimg.cc/vg2fTsk8/Frame-104.png",   // first PNG
+    "https://i.postimg.cc/KkpBj2w4/Frame-106.png",   // second PNG
+    "https://i.postimg.cc/cLYk69Tw/slide3.png"       // third PNG 
   ];
 
   const visiblePerImageMs = 10000;   // 10 seconds per image
-  const hiddenIntervalMs   = 60000; // 1 minute hidden
+  const hiddenIntervalMs   = 120000; // 2 minutes hidden (120,000 ms)
 
   const banner = document.getElementById("banner");
   const slide  = document.getElementById("slide");
@@ -80,5 +81,3 @@
 
 </body>
 </html>
-
-
